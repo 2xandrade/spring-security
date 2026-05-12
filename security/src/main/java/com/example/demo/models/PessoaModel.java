@@ -1,8 +1,13 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Data
 public class PessoaModel {
 
     @Id
@@ -10,19 +15,7 @@ public class PessoaModel {
     private Long id;
     private String nome;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany
+    private List<JobModel> jobModelList;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 }
